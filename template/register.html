@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <h3>
+        <title>Marigold Resturent & Banquet</title>
+    </h3>
+    <link rel="stylesheet" href="/static/css/rgs.css">
+    <script src="/static/js/rgs.js"></script>
+</head>
+{% if status %}
+<script>
+    alert('{{status}}');
+    window.location.href = "/login"
+</script>
+{% endif %}
+
+{% if error %}
+<script>
+    alert('{{error}}')
+</script>
+{% endif %} 
+
+<body>
+    {% comment %} <div class="d1">
+        <nav class="nv">
+                <h1>Marigold Resturent & Banquet</h1> 
+                <img class="im" src="/static/img/logo.png" alt="Not found">
+            <ul>
+                <li><a class="n" href="{% url 'login' %}">HOME</a></li>
+                <li><a class="n" href="">FOOD </a></li>
+                <li><a class="n" href="">CONACT US</a></li>
+                <li><a class="n" href="">ABOUT</a></li>
+            </ul>
+        </nav>
+    </div> {% endcomment %}
+    <div class="continer">
+        <div class="form-box">
+            <form action="" method='post' onsubmit="return validation()">
+                {% csrf_token %}
+                <h2>Register</h2>
+                <div class="input-box">
+                    <input placeholder="Username" type="text" id="username" name='username'>
+                </div>
+
+                <div class="input-box">
+                    <input placeholder="Mobile Number" type="text" id="mobile" name='mobile'>
+                </div>
+
+                <div class="input-box">
+                    <input placeholder="Email" type="text" id="email" name='email'>
+
+                </div>
+                <div class="input-box">
+                    <input placeholder="Password" type="password" id="password" name='password'>
+                </div>
+                <div class="input-box">
+                    <input placeholder="Confirm password" type="text" id="cpassword" name='cpassword'>
+
+                </div>
+                <div class="button">
+                    <input type="submit" class="btn" value="Register">
+                </div>
+                <div class="spas">
+                    <input class="spass" type="checkbox" onclick="spas()">
+                    <label>Show password</label>
+                </div>
+                <a class='account' href="{% url 'login' %}">I have an already account</a>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

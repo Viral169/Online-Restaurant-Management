@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marigold Resturent & Banquet</title>
+    <link rel="stylesheet" href="/static/css/login.css">
+    <script src="/static/js/login.js"></script>
+    {% comment %} {% if error %}
+    <script>
+        alert('{{error}}')
+    </script>
+    {% endif %} {% endcomment %}
+</head>
+
+<body>
+    
+ <div class="d1">
+        <nav class="nv"> 
+            <ul>
+                <li><a class="n" href="{% url 'home' %}">HOME</a></li>
+                <li><a class="n" href="{% url 'food' %}">MENU </a></li>
+                <li><a class="n" href="">GALLERY</a></li>
+                <li><a class="n" href="">CONACT US</a></li>
+                <li><a class="n" href="">ABOUT</a></li>
+            </ul>
+        </nav>
+    </div>  
+
+    <div class="continer">
+        <div class="form-box">
+            <form action="" method='post' onsubmit="return login()">     
+                {% csrf_token %}
+                <h2>LOGIN</h2><br>
+                <span class='alert alert-danger form-control-sm' role='alert'>
+                    <h3>{{error}}</h3>
+                    </span>
+                <div class="input-box">
+                    <input placeholder="Email" type="text" id="email" name='email'>
+                </div>
+                <div class="input-box">
+                    <input placeholder="Password" type="password" id="password" name='password'>
+                </div>
+
+                <div class="button">
+                    <input type="submit" class="btn" value="Login">
+                </div>
+                <div class="spas">
+                    <input class="spass" type="checkbox" onclick="spas()">
+                    <label>Show password</label>
+                </div>
+                <div class="group">
+                    <span>
+                        <a class='account_1' href="{% url 'signup' %}">Don't have an Account</a>
+                        <a class='account_2' href="{% url 'password_reset' %}">Forget Password</a>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
